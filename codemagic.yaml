@@ -5,6 +5,7 @@ workflows:
     environment:
       vars:
         EAS_NO_VCS: "1"
+        EXPO_TOKEN: $EXPO_TOKEN
       node: latest
     scripts:
       - name: Install dependencies
