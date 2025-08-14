@@ -3,10 +3,10 @@ workflows:
     name: Expo APK Build
     max_build_duration: 60
     environment:
+      node: latest
       vars:
         EAS_NO_VCS: "1"
         EXPO_TOKEN: $EXPO_TOKEN
-      node: latest
     scripts:
       - name: Install dependencies
         script: |
@@ -17,5 +17,10 @@ workflows:
           eas build -p android --profile preview --non-interactive
     artifacts:
       - build/**/*.apk
+    cache:
+      cache_paths:
+        - $HOME/.npm
+        - $HOME/.cache/eas
+
 
 
